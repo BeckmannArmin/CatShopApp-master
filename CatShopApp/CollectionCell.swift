@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionCell: UICollectionViewCell {
     
+    // Test1
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var preisLabel: UILabel!
     @IBOutlet weak var img: UIImageView!
