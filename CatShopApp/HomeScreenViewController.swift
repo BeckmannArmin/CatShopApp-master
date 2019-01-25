@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HomeScreenViewController: UIViewController{
-    
+    //Kategorien
     var categoriesName=["SALE","KRATZBÄUME","NÄPFE","CATNIP","FOODINGS"]
     
     @IBOutlet weak var tableView: UITableView!
