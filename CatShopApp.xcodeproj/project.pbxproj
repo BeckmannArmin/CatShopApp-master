@@ -11,6 +11,8 @@
 		3E2CA6A621FF31B000DBCD51 /* Kategorie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CA6A221FF31B000DBCD51 /* Kategorie+CoreDataProperties.swift */; };
 		3E2CA6A721FF31B000DBCD51 /* Produkt+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CA6A321FF31B000DBCD51 /* Produkt+CoreDataClass.swift */; };
 		3E2CA6A821FF31B000DBCD51 /* Produkt+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CA6A421FF31B000DBCD51 /* Produkt+CoreDataProperties.swift */; };
+		3E2CA6AB21FFA39F00DBCD51 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CA6AA21FFA39F00DBCD51 /* ShoppingCartViewController.swift */; };
+		3E2CA6AF21FFABDA00DBCD51 /* ShoppingCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2CA6AE21FFABDA00DBCD51 /* ShoppingCartCell.swift */; };
 		3E3AF3D821EB7D0900E64556 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AF3D721EB7D0900E64556 /* AppDelegate.swift */; };
 		3E3AF3DD21EB7D0900E64556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E3AF3DB21EB7D0900E64556 /* Main.storyboard */; };
 		3E3AF3E021EB7D0900E64556 /* CatShopApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E3AF3DE21EB7D0900E64556 /* CatShopApp.xcdatamodeld */; };
@@ -55,6 +57,8 @@
 		3E2CA6A221FF31B000DBCD51 /* Kategorie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kategorie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3E2CA6A321FF31B000DBCD51 /* Produkt+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Produkt+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3E2CA6A421FF31B000DBCD51 /* Produkt+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Produkt+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3E2CA6AA21FFA39F00DBCD51 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
+		3E2CA6AE21FFABDA00DBCD51 /* ShoppingCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartCell.swift; sourceTree = "<group>"; };
 		3E3AF3D421EB7D0900E64556 /* CatShopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatShopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E3AF3D721EB7D0900E64556 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E3AF3DC21EB7D0900E64556 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				3E9B364E21FE3EEE0035A6A5 /* searchCell.swift */,
 				3E3AF40A21EB8E4000E64556 /* MapKitLocationViewController.swift */,
 				3EB4017821FE362B0063775C /* SearchFunctionViewController.swift */,
+				3E2CA6AA21FFA39F00DBCD51 /* ShoppingCartViewController.swift */,
+				3E2CA6AE21FFABDA00DBCD51 /* ShoppingCartCell.swift */,
 				3E3AF3E121EB7D0A00E64556 /* Assets.xcassets */,
 				3E3AF3E321EB7D0A00E64556 /* LaunchScreen.storyboard */,
 				3E3AF3E621EB7D0A00E64556 /* Info.plist */,
@@ -319,11 +325,13 @@
 				3E2CA6A721FF31B000DBCD51 /* Produkt+CoreDataClass.swift in Sources */,
 				3E9B365721FE4F420035A6A5 /* Warenkorb+CoreDataProperties.swift in Sources */,
 				3E3AF3E021EB7D0900E64556 /* CatShopApp.xcdatamodeld in Sources */,
+				3E2CA6AB21FFA39F00DBCD51 /* ShoppingCartViewController.swift in Sources */,
 				3EB4017921FE362B0063775C /* SearchFunctionViewController.swift in Sources */,
 				3E9B365621FE4F420035A6A5 /* Warenkorb+CoreDataClass.swift in Sources */,
 				3E2CA6A821FF31B000DBCD51 /* Produkt+CoreDataProperties.swift in Sources */,
 				3E769DBA21F6346900935D9B /* ProfileViewController.swift in Sources */,
 				3E9B365A21FE4F420035A6A5 /* User+CoreDataClass.swift in Sources */,
+				3E2CA6AF21FFABDA00DBCD51 /* ShoppingCartCell.swift in Sources */,
 				3E2CA6A521FF31B000DBCD51 /* Kategorie+CoreDataClass.swift in Sources */,
 				3E3AF41121EBF61300E64556 /* HomeScreenViewController.swift in Sources */,
 				3E2CA6A621FF31B000DBCD51 /* Kategorie+CoreDataProperties.swift in Sources */,

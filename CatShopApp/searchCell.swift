@@ -9,10 +9,20 @@
 import Foundation
 import UIKit
 
-class searchCell: UITableViewCell{
+class searchCell: UICollectionViewCell{
     
     
-    @IBOutlet weak var beschreibung: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imgLabel: UIImageView!
+    @IBOutlet weak var preisLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
+    func setup(withProducts product: Produkt){
+        self.nameLabel.text = product.name
+        self.preisLabel.text = "\(product.preis)" + "€"
+        self.imgLabel.image = UIImage(named: product.image!)
+    }
 }

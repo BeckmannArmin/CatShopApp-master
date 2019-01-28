@@ -20,7 +20,7 @@ class ProductViewController: UIViewController {
     var dname: String = ""
     var dpreis: Double = 0
     var dbeschreibung: String = ""
-    
+    var currentProduct: Produkt!
     
     
     @IBAction func button(_ sender: Any) {
@@ -33,6 +33,7 @@ class ProductViewController: UIViewController {
         image.image = dimage
         preis.text = dpreis.description + "€"
         beschreibung.text = dbeschreibung
+        
         
         
     }
