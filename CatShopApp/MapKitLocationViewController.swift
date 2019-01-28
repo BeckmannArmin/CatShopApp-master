@@ -46,7 +46,7 @@ class MapKitLocationViewController: UIViewController{
         self.mapView.addAnnotations(self.locations)
     }
     
-    @IBAction func myLocationBarButton(_ sender: Any) {
+    @IBAction func myLocationBarButton(_ sender: UIBarButtonItem) {
         if self.lastUserLocation != nil {
             let region: MKCoordinateRegion = MKCoordinateRegion(center: lastUserLocation!.coordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
             self.mapView.setRegion(region, animated: true)
@@ -58,6 +58,8 @@ class MapKitLocationViewController: UIViewController{
         }
         
     }
+    
+    
 }
 
 extension MapKitLocationViewController: MKMapViewDelegate {
@@ -99,6 +101,7 @@ extension MapKitLocationViewController: MKMapViewDelegate {
             self.isUserInteraction = true
         }
     }
+    
 }
 
 

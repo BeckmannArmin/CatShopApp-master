@@ -15,6 +15,12 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var preisLabel: UILabel!
     @IBOutlet weak var img: UIImageView!
     
+    
+    func setup(withProducts product: Produkt){
+        self.nameLabel.text = product.name
+        self.preisLabel.text = "\(product.preis)" + "€"
+        self.img.image = UIImage(named: product.image!)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }

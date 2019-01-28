@@ -8,43 +8,23 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var locationManager: CLLocationManager?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.locationManager = CLLocationManager()
+        self.locationManager?.requestWhenInUseAuthorization()
+
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
-    }
-
-    // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -91,3 +71,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//Produkte
+//    func createData()
+//    {
+//        guard UserDefaults.standard.object(forKey: "firstStart") == nil,
+//            let productEntity = NSEntityDescription.entity(forEntityName: "Produkt", in: self.coreDataStack.managedObjectContext),
+//            let categoryEntity = NSEntityDescription.entity(forEntityName: "Kategorie", in: self.coreDataStack.managedObjectContext)
+//            else {
+//                return
+//        }
+//        UserDefaults.standard.set(false, forKey: "firstStart")
+//
+//        let categorie1 = createCategory(categoryEntity, name: "Kratzbäume", image: "KRATZBÄUME")
+//
+//        _ = [("Kratzbaum1","Ein großer Kratzbaum mit vielen Möglichkeiten zum Spielen, Klettern und Schlafen <3","Kratzbaum_1",42),("Kratzbaum2","Ein weiterer großer Kratzbaum mit vielen Möglichkeiten zum Spielen, Klettern und Schlafen <3)","Kratzbaum_2",52),("Kratzbaum3","Ein großer Kratzbaum mit vielen Möglichkeiten zum Spielen, Klettern und Schlafen <3","Kratzbaum_3",62),("Kratzbaum4","Ein großer Kratzbaum mit vielen Möglichkeiten zum Spielen, Klettern und Schlafen <3","Kratzbaum_4",72)].map{
+//            produktDaten in
+//            return createProducts(productEntity, name: produktDaten.0, beschreibung: produktDaten.1, image: produktDaten.2, preis: produktDaten.3)}
+//
+//
+//
+//        let categorie2 = createCategory(categoryEntity, name: "Näpfe", image: "NÄPFE")
+//        _ = [("Napf1","Ein sehr schöner Napf mit einem großen Fassungsvermögen zum daraus trinken und schlürfen","napf1",10),("Napf2","Ein weiterer sehr schöner Napf mit einem großen Fassungsvermögen zum daraus trinken und schlürfen","napf2",20),("Napf3","Ein sehr schöner Napf mit einem großen Fassungsvermögen zum daraus trinken und schlürfen","napf3",30),("Napf4","Und noch ein sehr schöner Napf mit einem großen Fassungsvermögen zum daraus trinken und schlürfen","napf4",40)].map{
+//            produktDaten in
+//            return createProducts(productEntity, name: produktDaten.0, beschreibung: produktDaten.1, image: produktDaten.2, preis: produktDaten.3)}
+//
+//        let categorie3 = createCategory(categoryEntity, name: "Catnip", image: "CATNIP")
+//        _ = [("Catnip1","Futter bei der jede Katze in Extase verfällt!","catnip1",420),("Catnip2","Noch mehr Futter bei der jede Katze in Extase verfällt!","catnip2",420), ("Catnip3","Futter bei der jede Katze in Extase verfällt!","catnip3",420),("Catnip4","Futter bei der jede Katze in Extase verfällt!","catnip4",420),("Catnip4","Futter bei der jede Katze in Extase verfällt!","catnip4",420)].map{
+//            produktDaten in
+//            return createProducts(productEntity, name: produktDaten.0, beschreibung: produktDaten.1, image: produktDaten.2, preis: produktDaten.3)}
+//
+//        let categorie4 = createCategory(categoryEntity, name: "Foodings", image: "FOODINGS")
+//        _ = [("Futter1","Sehr leckeres Katzenfutter! Mhmhmhmhmhmhmh leeeckerrrrr","futter1",100),("Futter2","Sehr leckeres Katzenfutter! Mhmhmhmhmhmhmh leeeckerrrrr","futter2",110),("Futter3","Sehr leckeres Katzenfutter! Mhmhmhmhmhmhmh leeeckerrrrr","futter3",100),("Futter4","Sehr leckeres Katzenfutter! Mhmhmhmhmhmhmh leeeckerrrrr","futter4",100)].map{
+//            produktDaten in
+//    return createProducts(productEntity, name: produktDaten.0, beschreibung: produktDaten.1, image: produktDaten.2, preis: produktDaten.3)}
+//
+//        self.coreDataStack.saveContext()
+//
+//    }
+//
+//
+//    private func createProducts(_ entität: NSEntityDescription, beschreibung: String, preis: Double, name: String, image: String) -> Produkt{
+//        let produkt: Produkt = Produkt(entity: entität, insertInto: self.coreDataStack.managedObjectContext)
+//        produkt.beschreibung = beschreibung
+//        produkt.preis = preis
+//        produkt.name = name
+//        produkt.image = image
+//        return produkt
+//    }
+//    private func createCategory(_ entität: NSEntityDescription, name: String, image: String) -> Kategorie {
+//        let mainCategory: Kategorie = Kategorie(entity: entität, insertInto: self.coreDataStack.managedObjectContext)
+//        mainCategory.name = name
+//        mainCategory.image = image
+//        return mainCategory
+//    }
