@@ -10,6 +10,7 @@
 import Foundation
 import CoreData
 
+
 @objc(Warenkorb)
 public class Warenkorb: NSManagedObject {
 

@@ -15,6 +15,7 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var preis: UILabel!
     @IBOutlet weak var beschreibung: UILabel!
     
+    
     var dimage = UIImage()
     var dname: String = ""
     var dpreis: Double = 0

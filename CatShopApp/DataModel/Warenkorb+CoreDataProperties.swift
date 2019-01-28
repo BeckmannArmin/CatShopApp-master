@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 
+
 extension Warenkorb {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Warenkorb> {

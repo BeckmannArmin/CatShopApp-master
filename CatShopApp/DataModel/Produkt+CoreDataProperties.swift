@@ -11,6 +11,7 @@ import Foundation
 import CoreData
 
 
+
 extension Produkt {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Produkt> {

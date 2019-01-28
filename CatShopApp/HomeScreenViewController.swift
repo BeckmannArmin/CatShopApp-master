@@ -38,6 +38,7 @@ class HomeScreenViewController: UIViewController{
         
     }
     
+    
     //new
     func insertDemoCategories(){
         let categorieDescription = NSEntityDescription.entity(forEntityName: "Kategorie", in: self.appDelegate.persistentContainer.viewContext)

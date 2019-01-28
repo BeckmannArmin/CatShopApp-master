@@ -25,9 +25,7 @@ class DetailCategoryViewController: UIViewController {
     @IBOutlet weak var cat: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-   
-    
-    
+    //Test
     override func viewDidLoad() {
         self.insertDemoProducts()
         super.viewDidLoad()
@@ -35,6 +33,7 @@ class DetailCategoryViewController: UIViewController {
         collectionView.dataSource = self
         img.image = UIImage(named: currentCategory.image!)
         cat.text = currentCategory.name
+ 
         
         let isFirstStart = UserDefaults.standard.object(forKey: DetailCategoryViewController.firstStartSettingKey) as? Bool
         if isFirstStart == false {

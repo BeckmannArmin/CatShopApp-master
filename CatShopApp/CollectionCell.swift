@@ -15,6 +15,7 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var preisLabel: UILabel!
     @IBOutlet weak var img: UIImageView!
     
+ 
     
     func setup(withProducts product: Produkt){
         self.nameLabel.text = product.name

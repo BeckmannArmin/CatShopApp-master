@@ -11,6 +11,7 @@ import UIKit
 
 class CategoryCell: UITableViewCell{
     
+   
     
     @IBOutlet weak var lbl: UILabel!
     @IBOutlet weak var img: UIImageView!

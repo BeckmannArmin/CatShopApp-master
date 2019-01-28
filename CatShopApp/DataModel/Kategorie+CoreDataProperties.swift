@@ -23,6 +23,7 @@ extension Kategorie {
 
 }
 
+
 // MARK: Generated accessors for produkte
 extension Kategorie {
 

@@ -11,6 +11,7 @@ import UIKit
 
 class searchCell: UITableViewCell{
     
+    
     @IBOutlet weak var beschreibung: UILabel!
     
     

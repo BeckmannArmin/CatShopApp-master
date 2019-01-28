@@ -12,6 +12,7 @@ import MapKit
 
 class MapKitLocationViewController: UIViewController{
     
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     var centerUserPosition: Bool = true

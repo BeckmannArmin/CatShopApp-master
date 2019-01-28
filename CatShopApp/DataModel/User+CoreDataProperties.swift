@@ -17,6 +17,7 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
+    
     @NSManaged public var vorname: String?
     @NSManaged public var nachname: String?
     @NSManaged public var email: String?

@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
