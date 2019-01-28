@@ -15,11 +15,11 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var preis: UILabel!
     @IBOutlet weak var beschreibung: UILabel!
     
-    
-    var dimage = UIImage()
-    var dname: String = ""
-    var dpreis: Double = 0
-    var dbeschreibung: String = ""
+//
+//    var dimage = UIImage()
+//    var dname: String = ""
+//    var dpreis: Double = 0
+//    var dbeschreibung: String = ""
     var currentProduct: Produkt!
     
     
@@ -29,10 +29,10 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        name.text = dname
-        image.image = dimage
-        preis.text = dpreis.description + "€"
-        beschreibung.text = dbeschreibung
+        name.text = currentProduct.name
+        image.image = UIImage(named: currentProduct.image!)
+        preis.text = currentProduct.preis.description + "€"
+        beschreibung.text = currentProduct.beschreibung
         
         
         

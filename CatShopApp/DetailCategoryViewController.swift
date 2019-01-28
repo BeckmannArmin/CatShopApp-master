@@ -46,13 +46,29 @@ class DetailCategoryViewController: UIViewController {
     func insertDemoProducts(){
         let productDescription = NSEntityDescription.entity(forEntityName: "Produkt", in: self.appDelegate.persistentContainer.viewContext)
         
+        var categories:[Kategorie] = []
+            let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Kategorie")
+            do {
+                if let results = try
+                    self.appDelegate.persistentContainer.viewContext.fetch(fetchRequest) as? [NSManagedObject] {
+                    let fetchedCategories:[Kategorie]? = results as? [Kategorie]
+                    if fetchedCategories != nil {
+                        categories = fetchedCategories!
+                    }
+                }
+            }
+            catch {
+                fatalError("There was an error fetching the items")
+        }
+        print(categories)
+        
         if let productDescription = productDescription{
             let product1 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
             product1.name = "Kratzbaum1"
             product1.preis = 42.00
             product1.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product1.image = "Kratzbaum_1"
-//            product1.kategorie = self.currentCategory
+            product1.kategorie = categories[3]
             
             
             let product2 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
@@ -60,21 +76,21 @@ class DetailCategoryViewController: UIViewController {
             product2.preis = 52.00
             product2.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product2.image = "Kratzbaum_2"
-//            product1.kategorie = Kategorie()
+            product2.kategorie = categories[3]
             
             let product3 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
             product3.name = "Kratzbaum1"
             product3.preis = 62.00
             product3.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product3.image = "Kratzbaum_3"
-//            product1.kategorie = Kategorie()
+            product3.kategorie = categories[3]
             
             let product4 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
             product4.name = "Kratzbaum1"
             product4.preis = 72.00
             product4.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product4.image = "Kratzbaum_4"
-//            product1.kategorie = Kategorie()
+            product4.kategorie = categories[3]
             
             self.appDelegate.saveContext()
         }
@@ -83,7 +99,7 @@ class DetailCategoryViewController: UIViewController {
     func fetchProducts(){
         let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Produkt")
         do {
-            if let results = try self.appDelegate.persistentContainer.viewContext.fetch(fetchRequest) as? [NSManagedObject] {
+            if let results = try self.appDelegate.persistentContainer.viewContext.fetch(fetchRequest) as? [NSManagedObject]  {
                 let fetchedProducts: [Produkt]? = results as? [Produkt]
                 if fetchedProducts != nil {
                     self.products = fetchedProducts!
@@ -115,7 +131,7 @@ extension DetailCategoryViewController: UICollectionViewDataSource
         }
 
         return cell!
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell",  for: indexPath) as! CollectionCell
 //        cell.nameLabel.text = products[indexPath.item].name
 //        cell.preisLabel.text = products[indexPath.item].preis.description + "€"
 //        cell.img.image = UIImage(named: products[indexPath.item].image!)
@@ -126,11 +142,7 @@ extension DetailCategoryViewController: UICollectionViewDataSource
 extension DetailCategoryViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ProductView") as? ProductViewController {
-
-            vc.dbeschreibung = products[indexPath.row].beschreibung!
-            vc.dname = products[indexPath.row].name!
-            vc.dpreis = products[indexPath.row].preis
-            vc.dimage = UIImage(named: products[indexPath.row].image!)!
+            vc.currentProduct = products[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
         

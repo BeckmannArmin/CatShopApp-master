@@ -71,7 +71,7 @@ class SearchFunctionViewController: UIViewController,UISearchBarDelegate,UISearc
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.text = ""
         self.searchBar.showsCancelButton = true
-        self.currentProducts = product
+        self.currentProducts = []
         self.collectionView.reloadData()
     }
 
@@ -96,9 +96,7 @@ extension SearchFunctionViewController: UICollectionViewDataSource{
 extension SearchFunctionViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "ProductView") as? ProductViewController {
-            vc.dname = product[indexPath.row].name!
-            vc.dpreis = product[indexPath.row].preis
-            vc.dimage = UIImage(named: product[indexPath.row].image!)!
+            vc.currentProduct = product[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }

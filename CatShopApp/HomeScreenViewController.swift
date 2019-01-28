@@ -57,7 +57,7 @@ class HomeScreenViewController: UIViewController{
             categorie3.image = "CATNIP"
            
             let categorie4 = Kategorie(entity: categorieDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
-            categorie4.name = "FOODINGS"
+            categorie4.name = "FUTTER"
             categorie4.image = "FOODINGS"
             
             self.appDelegate.saveContext()
@@ -87,11 +87,12 @@ class HomeScreenViewController: UIViewController{
         let imageView = UIImageView(image: image)
         let bannerWidth = navController.navigationBar.frame.size.width
         let bannerHeight = navController.navigationBar.frame.size.height
-        let bannerX = bannerWidth / 2 - image!.size.width / 2
+        let bannerX = bannerWidth / 2 - image!.size.width
         let bannerY = bannerHeight / 2 - image!.size.height / 2
         
         imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
         imageView.contentMode = .scaleAspectFit
+        
         
         navigationItem.titleView = imageView
     }

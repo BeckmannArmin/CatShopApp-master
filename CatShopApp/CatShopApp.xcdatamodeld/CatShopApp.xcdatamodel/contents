@@ -21,15 +21,22 @@
         <attribute name="stadt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="strasse" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="vorname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bestellungen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warenkorb" inverseName="user" inverseEntity="Warenkorb" syncable="YES"/>
     </entity>
     <entity name="Warenkorb" representedClassName="Warenkorb" syncable="YES">
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="bestellungen" inverseEntity="User" syncable="YES"/>
+        <relationship name="warenkorbeintraege" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warenkorbeintrag" inverseName="warenkorb" inverseEntity="Warenkorbeintrag" syncable="YES"/>
+    </entity>
+    <entity name="Warenkorbeintrag" representedClassName="Warenkorbeintrag" syncable="YES" codeGenerationType="class">
+        <attribute name="menge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="produkt" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Produkt" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="warenkorb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warenkorb" inverseName="warenkorbeintraege" inverseEntity="Warenkorb" syncable="YES"/>
     </entity>
     <elements>
         <element name="Kategorie" positionX="-18" positionY="99" width="128" height="90"/>
         <element name="Produkt" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="User" positionX="-54" positionY="36" width="128" height="165"/>
+        <element name="User" positionX="-54" positionY="36" width="128" height="180"/>
         <element name="Warenkorb" positionX="-36" positionY="45" width="128" height="75"/>
+        <element name="Warenkorbeintrag" positionX="-36" positionY="72" width="128" height="90"/>
     </elements>
 </model>

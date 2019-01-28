@@ -10,7 +10,6 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController {
    
-    
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,7 +17,7 @@ class ShoppingCartViewController: UIViewController {
         super.viewDidLoad()
 
         tableView.delegate = self
-        tableView.dataSource = self
+       // tableView.dataSource = self
     
     }
     
@@ -26,15 +25,15 @@ class ShoppingCartViewController: UIViewController {
 
 }
 
-extension ShoppingCartViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
+//extension ShoppingCartViewController: UITableViewDataSource{
+ //   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return
+ //   }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-}
+ //   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ //       return
+ //   }
+
 
 extension ShoppingCartViewController: UITableViewDelegate{
     
