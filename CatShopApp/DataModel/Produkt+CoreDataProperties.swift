@@ -2,14 +2,13 @@
 //  Produkt+CoreDataProperties.swift
 //  CatShopApp
 //
-//  Created by Armin Beckmann on 28.01.19.
+//  Created by Armin Beckmann on 30.01.19.
 //  Copyright © 2019 Armin. All rights reserved.
 //
 //
 
 import Foundation
 import CoreData
-
 
 
 extension Produkt {
@@ -22,6 +21,7 @@ extension Produkt {
     @NSManaged public var image: String?
     @NSManaged public var name: String?
     @NSManaged public var preis: Double
+    @NSManaged public var uid: String?
     @NSManaged public var kategorie: Kategorie?
 
 }

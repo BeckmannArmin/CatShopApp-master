@@ -11,15 +11,24 @@ import UIKit
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profilePic: UIImageView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNavBarImage()
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
         profilePic.clipsToBounds = true
         
     }
     
+        func addNavBarImage() {
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: "BarLogo")
+        imageView.image = image
+        
+        navigationItem.titleView = imageView
+    }
 
     /*
     // MARK: - Navigation

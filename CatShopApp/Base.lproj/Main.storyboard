@@ -75,9 +75,9 @@
                     <navigationItem key="navigationItem" id="LLo-iL-03W">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="hDC-2L-jpV">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u6l-1C-nMB">
-                                <rect key="frame" x="16" y="7" width="80" height="30"/>
+                                <rect key="frame" x="16" y="7" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="MyLocation"/>
+                                <state key="normal" title="MyGPS"/>
                                 <connections>
                                     <action selector="myLocationBarButton:" destination="nGR-Fv-TCf" eventType="touchUpInside" id="hOy-SM-d16"/>
                                 </connections>
@@ -86,6 +86,7 @@
                                 <action selector="myLocationBarButton:" destination="nGR-Fv-TCf" id="tE6-B8-8Kc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="ohI-ux-Vch"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Hhi-wI-coJ" id="P3i-mC-vOm"/>
@@ -96,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="666" y="1267"/>
         </scene>
-        <!--Title-->
+        <!--Home Screen View Controller-->
         <scene sceneID="cxU-W7-mI7">
             <objects>
                 <viewController id="b9s-rQ-6eu" customClass="HomeScreenViewController" customModule="CatShopApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,8 +159,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NdM-R5-bLW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="mJe-om-ZWJ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="shopping_cart" id="Uni-Qg-H6y">
+                    <navigationItem key="navigationItem" id="mJe-om-ZWJ">
+                        <barButtonItem key="rightBarButtonItem" image="shopping_cart" id="Uni-Qg-H6y">
                             <connections>
                                 <segue destination="IA4-En-iWI" kind="show" id="AYZ-lm-o00"/>
                             </connections>
@@ -434,7 +435,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="button:" destination="fnX-Fu-Uam" eventType="touchUpInside" id="r9F-6o-U6r"/>
+                                    <action selector="addToCart:" destination="fnX-Fu-Uam" eventType="touchUpInside" id="SmT-qK-ojt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -904,6 +905,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Bestellen"/>
+                                <connections>
+                                    <action selector="checkout:" destination="IA4-En-iWI" eventType="touchUpInside" id="lEZ-oG-lG0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -938,12 +942,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="wO3-f3-New"/>
                     <connections>
-                        <outlet property="tableView" destination="Fn2-LL-ThA" id="jhO-ZY-uQB"/>
+                        <outlet property="tableView" destination="Fn2-LL-ThA" id="6NX-Sj-1dQ"/>
+                        <outlet property="totalLabel" destination="Vps-7N-wV6" id="KGL-rk-5g1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaE-dj-JId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1620" y="-355"/>
+            <point key="canvasLocation" x="-1699" y="-357"/>
         </scene>
         <!--Konto-->
         <scene sceneID="t34-zV-Fta">

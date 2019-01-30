@@ -11,12 +11,11 @@ import UIKit
 import CoreData
 
 class HomeScreenViewController: UIViewController{
-    //Kategorien
-//    var categoriesName=["SALE","KRATZBÄUME","NÄPFE","CATNIP","FOODINGS"]
-    var categories: [Kategorie] = [Kategorie]() // new
     
-    var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate // new
-    static let firstStartSettingKey = "firstStart" //new
+    var categories: [Kategorie] = [Kategorie]()
+    
+    var appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    static let firstStartSettingKey = "firstStart"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +25,6 @@ class HomeScreenViewController: UIViewController{
         tableView.delegate = self
         addNavBarImage()
         
-        //NEW
         let isFirstStart = UserDefaults.standard.object(forKey: HomeScreenViewController.firstStartSettingKey) as? Bool
         
         if isFirstStart == nil{
@@ -44,6 +42,10 @@ class HomeScreenViewController: UIViewController{
         let categorieDescription = NSEntityDescription.entity(forEntityName: "Kategorie", in: self.appDelegate.persistentContainer.viewContext)
         
         if let categorieDescription = categorieDescription{
+            let categorie0 = Kategorie(entity: categorieDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
+            categorie0.name = "SALE"
+            categorie0.image = "SALE"
+            
             let categorie1 = Kategorie(entity: categorieDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
             categorie1.name = "KRATZBÄUME"
             categorie1.image = "KRATZBÄUME"
@@ -81,18 +83,13 @@ class HomeScreenViewController: UIViewController{
         
     }
     
-    func addNavBarImage(){
-        let navController = navigationController!
-        let image = UIImage(named: "Logo")
-        let imageView = UIImageView(image: image)
-        let bannerWidth = navController.navigationBar.frame.size.width
-        let bannerHeight = navController.navigationBar.frame.size.height
-        let bannerX = bannerWidth / 2 - image!.size.width
-        let bannerY = bannerHeight / 2 - image!.size.height / 2
+    func addNavBarImage() {
         
-        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         imageView.contentMode = .scaleAspectFit
         
+        let image = UIImage(named: "BarLogo")
+        imageView.image = image
         
         navigationItem.titleView = imageView
     }

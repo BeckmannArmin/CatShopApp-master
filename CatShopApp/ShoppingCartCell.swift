@@ -15,4 +15,10 @@ class ShoppingCartCell: UITableViewCell{
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var preisLabel: UILabel!
     @IBOutlet weak var titelLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+   
 }

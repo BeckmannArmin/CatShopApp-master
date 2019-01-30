@@ -11,29 +11,29 @@ import UIKit
 import CoreData
 
 class SearchFunctionViewController: UIViewController,UISearchBarDelegate,UISearchDisplayDelegate{
-  
+   
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var currentCategory: Kategorie = Kategorie()
     var product: [Produkt] = [Produkt]()
     var currentProducts: [Produkt] = [Produkt]()
     
-
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
+
         fetchAllProducts()
         
         super.viewDidLoad()
         
+        addNavBarImage()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.searchBar.delegate = self
         
     }
+ 
     
     func fetchAllProducts(){
         let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Produkt")
@@ -53,7 +53,17 @@ class SearchFunctionViewController: UIViewController,UISearchBarDelegate,UISearc
         }
     }
 
-    //Search Bar
+    func addNavBarImage() {
+
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+
+        let image = UIImage(named: "BarLogo")
+        imageView.image = image
+
+        navigationItem.titleView = imageView
+    }
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         guard !searchText.isEmpty else {
             currentProducts = product
@@ -67,40 +77,13 @@ class SearchFunctionViewController: UIViewController,UISearchBarDelegate,UISearc
         })
         collectionView.reloadData()
     }
-    //Search Bar Cancel Button Clicked
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.text = ""
         self.searchBar.showsCancelButton = true
         self.currentProducts = []
         self.collectionView.reloadData()
     }
-
-}
-
-extension SearchFunctionViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.currentProducts.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let product = self.currentProducts[indexPath.row]
-        let cell: searchCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCell", for: indexPath) as? searchCell
-        
-        if let cell = cell{
-            cell.setup(withProducts: product)
-        }
-        
-        return cell!
-    }
-}
-extension SearchFunctionViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "ProductView") as? ProductViewController {
-            vc.currentProduct = product[indexPath.row]
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-}
 
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        if searchText != ""{
@@ -117,5 +100,34 @@ extension SearchFunctionViewController: UICollectionViewDelegate{
 //                print("Could not get search data")
 //            }
 //            collectionView.reloadData()
+//        }
 //    }
-//    }
+}
+
+extension SearchFunctionViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.currentProducts.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let product = self.currentProducts[indexPath.row]
+        let cell: searchCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCell", for: indexPath) as? searchCell
+
+        if let cell = cell{
+            cell.setup(withProducts: product)
+        }
+
+        return cell!
+    }
+}
+extension SearchFunctionViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "ProductView") as? ProductViewController {
+            vc.currentProduct = product[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+
+

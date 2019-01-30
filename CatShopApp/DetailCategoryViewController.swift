@@ -16,7 +16,7 @@ class DetailCategoryViewController: UIViewController {
 
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    static let firstStartSettingKey = "firstStart"
+    static let firstStartSettingKey = "secondStart"
     
     var currentCategory: Kategorie = Kategorie()
     var products: [Produkt] = [Produkt]()
@@ -25,10 +25,9 @@ class DetailCategoryViewController: UIViewController {
     @IBOutlet weak var cat: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    //Test
     override func viewDidLoad() {
-        self.insertDemoProducts()
         super.viewDidLoad()
+        addNavBarImage()
         collectionView.delegate = self
         collectionView.dataSource = self
         img.image = UIImage(named: currentCategory.image!)
@@ -36,11 +35,22 @@ class DetailCategoryViewController: UIViewController {
  
         
         let isFirstStart = UserDefaults.standard.object(forKey: DetailCategoryViewController.firstStartSettingKey) as? Bool
-        if isFirstStart == false {
+        if isFirstStart == nil {
                 insertDemoProducts()
                 UserDefaults.standard.set(true, forKey: DetailCategoryViewController.firstStartSettingKey)
         }
         fetchProducts()
+    }
+    
+    func addNavBarImage() {
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: "BarLogo")
+        imageView.image = image
+        
+        navigationItem.titleView = imageView
     }
     
     func insertDemoProducts(){
@@ -64,32 +74,36 @@ class DetailCategoryViewController: UIViewController {
         
         if let productDescription = productDescription{
             let product1 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
-            product1.name = "Kratzbaum1"
+            product1.name = "Kratzbaum Helga"
             product1.preis = 42.00
             product1.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product1.image = "Kratzbaum_1"
+            product1.uid = "p1"
             product1.kategorie = categories[3]
             
             
             let product2 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
-            product2.name = "Kratzbaum1"
+            product2.name = "Kratzbaum Bert"
             product2.preis = 52.00
             product2.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product2.image = "Kratzbaum_2"
+            product2.uid = "p2"
             product2.kategorie = categories[3]
             
             let product3 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
-            product3.name = "Kratzbaum1"
+            product3.name = "Kratzbaum Emil"
             product3.preis = 62.00
             product3.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product3.image = "Kratzbaum_3"
+            product3.uid = "p3"
             product3.kategorie = categories[3]
             
             let product4 = Produkt(entity: productDescription, insertInto: self.appDelegate.persistentContainer.viewContext)
-            product4.name = "Kratzbaum1"
+            product4.name = "Kratzbaum Gisela"
             product4.preis = 72.00
             product4.beschreibung = "Ein wunderwollver Kratzbaum mit tollen Eigenschaften <3"
             product4.image = "Kratzbaum_4"
+            product4.uid = "p4"
             product4.kategorie = categories[3]
             
             self.appDelegate.saveContext()
@@ -131,11 +145,6 @@ extension DetailCategoryViewController: UICollectionViewDataSource
         }
 
         return cell!
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell",  for: indexPath) as! CollectionCell
-//        cell.nameLabel.text = products[indexPath.item].name
-//        cell.preisLabel.text = products[indexPath.item].preis.description + "€"
-//        cell.img.image = UIImage(named: products[indexPath.item].image!)
-//        return cell
     }
 }
 

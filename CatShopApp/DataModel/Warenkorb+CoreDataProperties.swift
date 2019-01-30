@@ -2,14 +2,13 @@
 //  Warenkorb+CoreDataProperties.swift
 //  CatShopApp
 //
-//  Created by Armin Beckmann on 27.01.19.
+//  Created by Armin Beckmann on 29.01.19.
 //  Copyright © 2019 Armin. All rights reserved.
 //
 //
 
 import Foundation
 import CoreData
-
 
 
 extension Warenkorb {
@@ -19,6 +18,9 @@ extension Warenkorb {
     }
 
     @NSManaged public var menge: Double
+    @NSManaged public var produkt: Double
+    @NSManaged public var total: Double
     @NSManaged public var user: User?
+    @NSManaged public var warenkorbeintraege: Warenkorbeintrag?
 
 }

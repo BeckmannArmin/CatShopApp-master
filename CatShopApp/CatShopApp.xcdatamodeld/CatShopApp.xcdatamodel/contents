@@ -10,6 +10,7 @@
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preis" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="kategorie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kategorie" inverseName="produkte" inverseEntity="Kategorie" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
@@ -24,6 +25,9 @@
         <relationship name="bestellungen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warenkorb" inverseName="user" inverseEntity="Warenkorb" syncable="YES"/>
     </entity>
     <entity name="Warenkorb" representedClassName="Warenkorb" syncable="YES">
+        <attribute name="menge" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="produkt" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="bestellungen" inverseEntity="User" syncable="YES"/>
         <relationship name="warenkorbeintraege" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Warenkorbeintrag" inverseName="warenkorb" inverseEntity="Warenkorbeintrag" syncable="YES"/>
     </entity>
@@ -34,9 +38,9 @@
     </entity>
     <elements>
         <element name="Kategorie" positionX="-18" positionY="99" width="128" height="90"/>
-        <element name="Produkt" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Produkt" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="User" positionX="-54" positionY="36" width="128" height="180"/>
-        <element name="Warenkorb" positionX="-36" positionY="45" width="128" height="75"/>
+        <element name="Warenkorb" positionX="-36" positionY="45" width="128" height="120"/>
         <element name="Warenkorbeintrag" positionX="-36" positionY="72" width="128" height="90"/>
     </elements>
 </model>

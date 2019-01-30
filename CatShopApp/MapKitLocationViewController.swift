@@ -22,6 +22,7 @@ class MapKitLocationViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNavBarImage()
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.createAnnotation()
@@ -30,6 +31,17 @@ class MapKitLocationViewController: UIViewController{
         self.tableView.delegate = self
     }
     
+
+    func addNavBarImage() {
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        
+        let image = UIImage(named: "BarLogo")
+        imageView.image = image
+        
+        navigationItem.titleView = imageView
+    }
     
     func createAnnotation() {
         let annoationCologne: MKPointAnnotation = MKPointAnnotation()
